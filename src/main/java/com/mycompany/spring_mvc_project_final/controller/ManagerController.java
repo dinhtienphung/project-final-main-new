@@ -42,4 +42,11 @@ public class ManagerController {
         return "jsp/manager";
     }
 
+    @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.GET)
+    public String deleteProduct(@PathVariable int id) {
+        productService.deleteById(id);
+        return "redirect:/";
+
+    }
+
 }

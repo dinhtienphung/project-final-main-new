@@ -31,90 +31,8 @@
 </head>
 
 <body>
-  <header class="header_area">
-    <div class="main_menu">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
+<jsp:include page="hearder.jsp"/>
 
-          <a class="navbar-brand logo_h" href="/project-final-main">
-            <img src="<c:url value='/resources/css/img/logo/Logo1_tp_icon.png'/>"/>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
-            <div class="row w-100 mr-0">
-              <div class="col-lg-7 pr-0">
-                <ul class="nav navbar-nav center_nav pull-right">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/productphone">Trang Chủ</a>
-                  </li>
-
-                  <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false">Danh Mục</a>
-                    <ul class="dropdown-menu">
-                        <c:forEach var="category" items="${categoryList}" varStatus="index">
-                          <li class="nav-item">
-                            <a class="nav-link" href="product-list/categoryid=${category.id}page1">${category.name}</a>
-                          </li>
-                        </c:forEach>
-                    </ul>
-                  </li>
-                  <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false">Trang Quản Lý</a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item">
-                        <a class="nav-link" href="manager">Danh Mục Quản Lý</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-5 pr-0">
-                <ul class="nav navbar-nav navbar-right right_nav pull-right">
-
-                  <li class="nav-item">
-                    <a href="cart" class="icons">
-                      <i class="ti-shopping-cart">Giỏ Hàng</i>
-                    </a>
-                  </li>
-
-                  <li class="nav-items">
-                      <li><a style="color: black;" href="#"><i class="fa fa-user"></i> Đăng Nhập</a></li>
-                    </a>
-                  </li>
-
-                  <li class="nav-items">
-                      <li><a style="color: black;" href="#"><i class="fa fa-user"></i> Đăng Ký</a></li>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <div class="search">
-    <form:form action="search" method="get">
-      <div class="input-group">
-          <input name="searchInput" type="text" class="form-control rounded" placeholder="Sản Phẩm Cần Tìm?" aria-label="Search"
-              aria-describedby="search-addon" />
-          <button type="submit" class="btn btn-outline-primary">Tìm Kiếm</button>
-      </div>
-    </form:form>
-  </div>
   <section class="feature-area section_gap_bottom_custom">
     <div class="container">
       <div class="row">
@@ -124,93 +42,66 @@
             <img width="54px" src="<c:url value='/resources/css/img/logoDT.PNG'/>"/>
               <h3>Điện Thoại</h3>
             </a>
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                aria-expanded="false"></a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">iPhone 14 Pro Max</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="single-product.html">iPhone 14 Plus</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="checkout.html">iPhone 13 Pro Max</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="cart.html">iPhone SE 2022</a>
-                </li>
-              </ul>
-
+                <div class="select">
+                  <select name="cars" id="cars">
+                    <option value="volvo"></option>
+                    <option value="saab">Iphone 15</option>
+                    <option value="opel">Iphone 16</option>
+                    <option value="audi">Iphone 17</option>
+                  </select>
+                </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
           <div class="single-feature">
+            <a href="#">
             <img src="<c:url value='/resources/css/img/logotablet3.PNG'/>"/>
               <h3>Tablet</h3>
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                aria-expanded="false"></a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">iPad Pro</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="single-product.html">iPad Gen</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="checkout.html">Galaxy Tab</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="cart.html">Oppo Tab</a>
-                </li>
-              </ul>
+            </a>
+              <div class="select">
+                <select name="cars" id="cars">
+                  <option value="volvo"></option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
 
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
           <div class="single-feature">
+            <a href="#">
             <img style="width: 82px;" src="<c:url value='/resources/css/img/logoLaptop.PNG'/>"/>
               <h3>LapTop&MAC</h3>
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-              aria-expanded="false"></a>
-            <ul class="dropdown-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Macbook Pro</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="single-product.html">Macbook Air</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="checkout.html">Dell</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cart.html">LG</a>
-              </li>
-            </ul>
+            </a>
+            <div class="select">
+               <select name="cars" id="cars">
+                 <option value="volvo"></option>
+                 <option value="saab">Saab</option>
+                 <option value="opel">Opel</option>
+                 <option value="audi">Audi</option>
+               </select>
+            </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
           <div class="single-feature">
+            <a href="#">
             <img style="width: 37px;" src="<c:url value='/resources/css/img/logodongho.PNG'/>"/>
               <h3>Đồng Hồ</h3>
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-              aria-expanded="false"></a>
-            <ul class="dropdown-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Apple Wacth Series 7</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="single-product.html">Apple Wacth Series 8</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="checkout.html">Apple Wacth SE 2022</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cart.html">Apple Wacth Ultra</a>
-              </li>
-            </ul>
+            </a>
+            <div class="select">
+               <select name="cars" id="cars">
+                 <option value="volvo"></option>
+                 <option value="saab">Saab</option>
+                 <option value="opel">Opel</option>
+                 <option value="audi">Audi</option>
+               </select>
+            </div>
           </div>
         </div>
       </div>
@@ -224,6 +115,13 @@
           <div class="main_title">
             <h2><span>Sản Phẩm Mới</span></h2>
             <p>Bring called seed first of third give itself now ment</p>
+          </div>
+          <div class="main_title">
+              <div class="img-logohome1">
+                <div class="img-logo1">
+                  <img src="<c:url value='/resources/css/img/logohome1920x600-060323-min.png'/>"/>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -287,6 +185,13 @@
           <div class="main_title">
             <h2><span>Điện Thoại</span></h2>
           </div>
+          <div class="main_title">
+            <div class="img-logohome1">
+              <div class="img-logo1">
+                <img src="<c:url value='/resources/css/img/logohome1920x600-060323-min.png'/>"/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -320,6 +225,9 @@
       </div>
     </div>
   </section>
+  <div class="main_title">
+      <a href="#" class="d-block">Xem Thêm</a>
+  </div>
 
   <section class="inspired_product_area section_gap_bottom_custom">
       <div class="container">
@@ -327,6 +235,13 @@
           <div class="col-lg-12">
             <div class="main_title">
               <h2><span>Tablet</span></h2>
+            </div>
+            <div class="main_title">
+                <div class="img-logohome1">
+                  <div class="img-logo1">
+                    <img src="<c:url value='/resources/css/img/logohome1920x600-060323-min.png'/>"/>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -361,6 +276,10 @@
             </div>
       </div>
     </section>
+    <div class="main_title">
+          <a href="#" class="d-block">Xem Thêm</a>
+      </div>
+
 
     <section class="inspired_product_area section_gap_bottom_custom">
           <div class="container">
@@ -369,6 +288,13 @@
                 <div class="main_title">
                   <h2><span>LapTop&Mac</span></h2>
                 </div>
+                <div class="main_title">
+                  <div class="img-logohome1">
+                    <div class="img-logo1">
+                      <img src="<c:url value='/resources/css/img/logohome1920x600-060323-min.png'/>"/>
+                    </div>
+                  </div>
+                 </div>
               </div>
             </div>
 
@@ -402,6 +328,10 @@
                 </div>
           </div>
     </section>
+    <div class="main_title">
+          <a href="#" class="d-block">Xem Thêm</a>
+      </div>
+
 
     <section class="inspired_product_area section_gap_bottom_custom">
           <div class="container">
@@ -409,6 +339,13 @@
               <div class="col-lg-12">
                 <div class="main_title">
                   <h2><span>Đồng Hồ</span></h2>
+                </div>
+                <div class="main_title">
+                  <div class="img-logohome1">
+                    <div class="img-logo1">
+                      <img src="<c:url value='/resources/css/img/logohome1920x600-060323-min.png'/>"/>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -443,6 +380,10 @@
                 </div>
           </div>
     </section>
+    <div class="main_title">
+          <a href="#" class="d-block">Xem Thêm</a>
+    </div>
+
 
 </body>
 </html>

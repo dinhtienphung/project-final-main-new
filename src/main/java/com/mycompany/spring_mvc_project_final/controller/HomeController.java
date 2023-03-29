@@ -45,10 +45,10 @@ public class HomeController {
 
 
 
-//    @RequestMapping(value = "/cart")
-//    public String index(){
-//        return "cart";
-//    }
+    @RequestMapping(value = "/hearder")
+    public String index(){
+        return "jsp/hearder";
+    }
 
 //    @RequestMapping(value = "/newProduct", method = GET)
 //    public String showNewProduct(Model model) {

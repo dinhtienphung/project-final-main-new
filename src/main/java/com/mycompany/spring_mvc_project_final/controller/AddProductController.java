@@ -2,7 +2,9 @@ package com.mycompany.spring_mvc_project_final.controller;
 
 import com.mycompany.spring_mvc_project_final.entities.Category;
 import com.mycompany.spring_mvc_project_final.entities.Product;
+import com.mycompany.spring_mvc_project_final.entities.ProductDetail;
 import com.mycompany.spring_mvc_project_final.service.CategoryService;
+import com.mycompany.spring_mvc_project_final.service.ProductDetailService;
 import com.mycompany.spring_mvc_project_final.service.ProductService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class AddProductController {
     @Autowired
     ProductService productService;
+
+    @Autowired
+    ProductDetailService productDetailService;
     @Autowired
     CategoryService categoryService;
 
@@ -51,12 +56,24 @@ public class AddProductController {
     @RequestMapping(value = "/add_image", method = RequestMethod.POST,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = {MediaType.APPLICATION_JSON_UTF8_VALUE, "text/plain;charset=UTF-8"} )
-    public ModelAndView save(@RequestParam("name") String name,
-                             @RequestPart("photo") MultipartFile photo,
-                             Product product) {
+    public ModelAndView save(Product product, @RequestParam("name") String name,
+                                              @RequestPart("photo") MultipartFile photo,
+                                              @RequestParam("description") String description,
+                                              @RequestParam("price") Double price,
+                                              @RequestParam("quantity") int quantity,
+
+                                              @RequestParam("product_batteries") String product_batteries) {
         try {
+            ProductDetail productDetail = new ProductDetail();
+            productDetail.setProduct_batteries(product_batteries);
+            productDetailService.save(productDetail);
+
             product.setName(name);
             product.setImage(photo.getBytes());
+            product.setDescription(description);
+            product.setPrice(price);
+            product.setQuantity(quantity);
+            product.setProductDetail(productDetail);
             productService.save(product);
             return new ModelAndView( "redirect:/manager");
             //return new ModelAndView("stu", "msg", "Records succesfully inserted into database.");

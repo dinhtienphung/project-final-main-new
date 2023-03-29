@@ -46,13 +46,11 @@ public class CartItemService {
     public void deleteById(int id) {
         cartItemRepository.deleteById(id);
     }
-
-
-    public void deleteAllCartItem() { cartItemRepository.deleteAll();
-    }
+    
 
     public List<CartItem> findAllByCartId(int id) { return cartItemRepository.findByCartId(id);
     }
+
 }
 
 

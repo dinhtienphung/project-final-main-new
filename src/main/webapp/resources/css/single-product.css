@@ -21,13 +21,6 @@ body {
 .card_area {
     display: flex;
 }
-.checkout a{
-    background-color: #f02a2d;
-    border: 1px solid #f02a2d;
-}
-.checkout a:hover {
-    color: #f02a2d;
-}
 .price-product {
     display: flex;
 }

@@ -10,8 +10,8 @@ public class AccountBankingService {
     @Autowired
     AccountBankingRepository accountBankingRepository;
 
-    public AccountBanking getAccountBankingByAccountId () {
-        return (AccountBanking) accountBankingRepository.getAccountBankingByAccountId();
+    public AccountBanking getAccountBankingByAccountId (int id) {
+        return (AccountBanking) accountBankingRepository.getAccountBankingByAccountId(id);
     }
 
 
