@@ -167,7 +167,7 @@
                           <td>
                             <div class="media">
                               <div class="d-flex">
-                                <img class="img-fluid" src="getProductPhoto/<c:out value='${cartItem.id}'/>"/>
+                                <img class="img-fluid" src="./getProductPhoto/<c:out value='${cartItem.id}'/>"/>
                               </div>
                               <div class="media-body">
                                <a href="product/${cartItem.product.id}">

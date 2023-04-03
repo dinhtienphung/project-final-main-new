@@ -53,14 +53,13 @@ public class ProductController {
 
         Product p = productService.findById(id);
         byte[] ph = p.getImage();
+        byte[] ph1 = p.getImage1();
+        byte[] ph2 = p.getImage2();
+        byte[] ph3 = p.getImage3();
+        byte[] ph4 = p.getBanner();
         InputStream inputStream = new ByteArrayInputStream(ph);
         IOUtils.copy(inputStream, response.getOutputStream());
     }
 
-    @RequestMapping(value = "/buyProduct", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
-    public String buyProduct(Model model) {
-        model.addAttribute("order", new Order());
-        return "jsp/checkout";
-    }
 
 }

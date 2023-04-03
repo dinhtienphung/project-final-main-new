@@ -5,13 +5,15 @@ import com.mycompany.spring_mvc_project_final.repository.AccountBankingRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountBankingService {
     @Autowired
     AccountBankingRepository accountBankingRepository;
 
-    public AccountBanking getAccountBankingByAccountId (int id) {
-        return (AccountBanking) accountBankingRepository.getAccountBankingByAccountId(id);
+    public List<AccountBanking> getAccountBankingByAccountId (int id) {
+        return accountBankingRepository.getAccountBankingByAccountId(id);
     }
 
 

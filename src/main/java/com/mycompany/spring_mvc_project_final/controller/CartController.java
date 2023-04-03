@@ -3,12 +3,16 @@ package com.mycompany.spring_mvc_project_final.controller;
 
 import com.mycompany.spring_mvc_project_final.entities.*;
 import com.mycompany.spring_mvc_project_final.service.*;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,6 +53,7 @@ public class CartController {
         model.addAttribute("cartItem", cartItemService.findAll());
         return "jsp/cart";
     }
+
 
     @RequestMapping(value = "/addToCart/{id}", method = RequestMethod.GET)
     public String addToCart(@PathVariable int id) {
@@ -110,7 +115,7 @@ public class CartController {
         Payment payment = new Payment();
         if (payment_method.equals("COD")) {
             if (accountBankingList == null || accountBankingList.isEmpty()) {
-                return "redirect:/";
+                return "redirect:/cart";
             } else if (accountBankingList.get(0).getBalance() < cartItemService.getAmount()) {
                 model.addAttribute("msg", "khong du tien");
                 return "redirect:/";
@@ -151,7 +156,7 @@ public class CartController {
                 cartItemService.deleteById(cart.getId());
             }
         }else if (payment_method.equals("CASH")) {
-            AccountBanking accountBanking = accountBankingList.get(0);
+
             List<CartItem> cartItems = (List<CartItem>) cartItemService.findAllByCartId(account.getCart().getId());
             for (CartItem cart : cartItems) {
                 Product product = productService.findById(cart.getProduct().getId());
@@ -170,11 +175,11 @@ public class CartController {
                     orderDetail.setPrice(cart.getProduct().getPrice());
                     orderDetail.setProduct(cart.getProduct());
                     orderDetail.setOrder(order);
+                    orderDetailService.save(orderDetail);
 
                     payment.setOrder(order);
                     payment.setPayment_date(new Date());
                     payment.setAmount(cartItemService.getAmount());
-                    payment.setAccountBanking(accountBanking);
                     paymentService.save(payment);
                 }
             }
@@ -186,6 +191,8 @@ public class CartController {
 
         return "redirect:/";
     }
+
+
 
 }
 

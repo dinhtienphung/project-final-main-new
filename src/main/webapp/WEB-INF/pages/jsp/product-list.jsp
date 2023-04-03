@@ -145,7 +145,7 @@
               <div class="col-lg-3 col-md-6">
                 <div class="single-product">
                   <div class="product-img">
-                    <img class="img-fluid w-100" src="<c:url value='/resources/css/img/product/inspired-product/i1.jpg'/>"/>
+                    <img class="img-fluid w-100" src="../product/getProductPhoto/<c:out value='${list.id}'/>"/>
                     <div class="p_icon">
                       <a href="#">
                         <i class="ti-eye"></i>
@@ -175,9 +175,9 @@
           <nav aria-label="Page navigation example">
                 <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="categoryid=${category.id}page${previous}">Previous</a></li>
-                <c:forEach var='item' begin='1' end='${countPage}'>
-                  <li class="page-item"><a class="page-link" href="categoryid=${category.id}page${item}"><c:out value='${item}'/></a></li>
-                  </c:forEach>
+                    <c:forEach var='item' begin='1' end='${countPage}'>
+                      <li class="page-item"><a class="page-link" href="categoryid=${category.id}page${item}"><c:out value='${item}'/></a></li>
+                    </c:forEach>
                  <li class="page-item"><a class="page-link" href="categoryid=${category.id}page${next}">Next</a></li>
                 </ul>
           </nav>

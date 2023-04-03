@@ -12,5 +12,5 @@ import java.util.List;
 public interface AccountBankingRepository extends CrudRepository<AccountBanking, Integer> {
 
     @Query(value = "SELECT * FROM account_banking WHERE accountId = ?1" ,nativeQuery = true)
-    AccountBanking getAccountBankingByAccountId(int id);
+    List<AccountBanking> getAccountBankingByAccountId(int id);
 }

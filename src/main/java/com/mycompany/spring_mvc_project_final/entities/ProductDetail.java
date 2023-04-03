@@ -10,6 +10,9 @@ public class ProductDetail {
     @Column (name = "id")
     private int id;
 
+    @Column (name = "information")
+    private String information;
+
     @Column (name = "product_batteries")
     private String product_batteries;
 
@@ -26,24 +29,9 @@ public class ProductDetail {
     @Column (name = "product_system")
     private String product_system;
 
-    @Lob
-    @Column (name = "image")
-    private byte [] image;
-    @Lob
-    @Column (name = "product_image1")
-    private byte [] product_image1;
-    @Lob
-    @Column (name = "product_image2")
-    private byte [] product_image2;
-    @Lob
-    @Column (name = "product_image3")
-    private byte [] product_image3;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "productDetails")
     private Product product;
-
-    public ProductDetail() {
-    }
 
     public int getId() {
         return id;
@@ -51,6 +39,14 @@ public class ProductDetail {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
     }
 
     public String getProduct_batteries() {
@@ -107,38 +103,6 @@ public class ProductDetail {
 
     public void setProduct_system(String product_system) {
         this.product_system = product_system;
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public byte[] getProduct_image1() {
-        return product_image1;
-    }
-
-    public void setProduct_image1(byte[] product_image1) {
-        this.product_image1 = product_image1;
-    }
-
-    public byte[] getProduct_image2() {
-        return product_image2;
-    }
-
-    public void setProduct_image2(byte[] product_image2) {
-        this.product_image2 = product_image2;
-    }
-
-    public byte[] getProduct_image3() {
-        return product_image3;
-    }
-
-    public void setProduct_image3(byte[] product_image3) {
-        this.product_image3 = product_image3;
     }
 
     public Product getProduct() {

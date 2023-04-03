@@ -133,7 +133,7 @@
                 <h3 class="text-uppercase">${top1.name}</h3>
                 <div class="product-img">
                     <a href="product/${top1.id}">
-                      <img class="img-fluid" src="getProductPhoto/<c:out value='${top1.id}'/>"/>
+                      <img  class="img-fluid w-100"  src="getProductPhoto/<c:out value='${top1.id}'/>"/>
                     </a>
                 </div>
                 <h4><fmt:formatNumber value="${top1.price}" pattern="#,##0" /></h4>
@@ -149,7 +149,7 @@
                         <div class="col-lg-6 col-md-6">
                           <div class="single-product">
                             <div class="product-img">
-                              <img class="img-fluid w-100" src="<c:url value='/resources/css/img/product/new-product/n1.jpg'/>"/>
+                              <img class="img-fluid" w-100 h-100" src="getProductPhoto/<c:out value='${top4.id}'/>"/>
                               <div class="p_icon">
                                 <a href="product/${top4.id}">
                                   <i class="ti-eye"></i>
@@ -200,7 +200,7 @@
             <div class="col-lg-3 col-md-6">
               <div class="single-product">
                 <div class="product-img">
-                  <img class="img-fluid w-100" src="<c:url value='/resources/css/img/product/inspired-product/i1.jpg'/>"/>
+                <img class="img-fluid" w-100" src="getProductPhoto/<c:out value='${product.id}'/>"/>
                   <div class="p_icon">
                     <a href="product/${product.id}">
                       <i class="ti-eye"></i>
@@ -224,10 +224,10 @@
           </c:forEach>
       </div>
     </div>
+      <div class="main_title">
+          <a href="#" class="d-block">Xem Thêm</a>
+      </div>
   </section>
-  <div class="main_title">
-      <a href="#" class="d-block">Xem Thêm</a>
-  </div>
 
   <section class="inspired_product_area section_gap_bottom_custom">
       <div class="container">
@@ -251,7 +251,7 @@
                   <div class="col-lg-3 col-md-6">
                     <div class="single-product">
                       <div class="product-img">
-                        <img class="img-fluid w-100" src="<c:url value='/resources/css/img/product/inspired-product/i1.jpg'/>"/>
+                        <img class="img-fluid" w-100" src="getProductPhoto/<c:out value='${product.id}'/>"/>
                         <div class="p_icon">
                           <a href="product/${product.id}">
                             <i class="ti-eye"></i>
@@ -303,7 +303,7 @@
                       <div class="col-lg-3 col-md-6">
                         <div class="single-product">
                           <div class="product-img">
-                            <img class="img-fluid w-100" src="<c:url value='/resources/css/img/product/inspired-product/i1.jpg'/>"/>
+                            <img class="img-fluid" w-100" src="getProductPhoto/<c:out value='${product.id}'/>"/>
                             <div class="p_icon">
                               <a href="product/${product.id}">
                                 <i class="ti-eye"></i>
@@ -383,6 +383,22 @@
     <div class="main_title">
           <a href="#" class="d-block">Xem Thêm</a>
     </div>
+
+    <script src="<c:url value="/resources/css/js/jquery-3.2.1.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/js/popper.js"/>"></script>
+        <script src="<c:url value="/resources/css/js/bootstrap.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/js/stellar.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/lightbox/simpleLightbox.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/nice-select/js/jquery.nice-select.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/isotope/imagesloaded.pkgd.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/isotope/isotope-min.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/owl-carousel/owl.carousel.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/js/jquery.ajaxchimp.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/js/mail-script.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/jquery-ui/jquery-ui.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/counter-up/jquery.waypoints.min.js"/>"></script>
+        <script src="<c:url value="/resources/css/vendors/counter-up/jquery.counterup.js"/>"></script>
+        <script src="<c:url value="/resources/css/js/theme.js"/>"></script>
 
 
 </body>

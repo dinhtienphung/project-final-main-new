@@ -89,14 +89,14 @@
                     </div>
                 </div>
                 <div class="main-login main-center">
-                    <form action="${action}" method="post" enctype="multipart/form-data" modelAttribute="product">
+                    <form action="${action}" method="post" encType="multipart/form-data" modelAttribute="product">
                             <div class="form-group">
                                 <c:if test="${type.equals('update')}">
                                     <label for="name" class="cols-sm-2 control-label">ID (*)</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><c:out value="${product.id}" /></span>
-                                            <form:hidden path="id"/>
+                                            <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                            <input name="id" value="${product.id}" class="form-control" readonly/>
                                         </div>
                                         <div class="message" id="message_name"></div>
                                     </div>
@@ -107,7 +107,7 @@
                                 <div class="cols-sm-10">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                                        <input name="name" type="text" class="form-control" placeholder="Nhập tên sản phẩm"
+                                        <input name="name" value="${product.name}" type="text" class="form-control" placeholder="Nhập tên sản phẩm"
                                                                             required="true" />
                                     </div>
                                     <div class="message" id="message_name">
@@ -120,7 +120,7 @@
                                 <div class="cols-sm-10">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                                        <input name="photo" type="file" class="form-control"/>
+                                        <input name="photo" value="${product.image}" type="file" class="form-control"/>
                                     </div>
                                     <div class="message" id="message_name">
                                     </div>
@@ -128,11 +128,60 @@
                            </div>
 
                            <div class="form-group">
+                               <label for="name" class="cols-sm-2 control-label">Hình ảnh phụ 1 (*)</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                       <input name="photo1" value="${product.image1}" type="file" class="form-control"/>
+                                   </div>
+                                   <div class="message" id="message_name">
+                                   </div>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="name" class="cols-sm-2 control-label">Hình ảnh phụ 2 (*)</label>
+                              <div class="cols-sm-10">
+                                  <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                      <input name="photo2" value="${product.image2}" type="file" class="form-control"/>
+                                  </div>
+                                  <div class="message" id="message_name">
+                                  </div>
+                              </div>
+                           </div>
+
+                            <div class="form-group">
+                                <label for="name" class="cols-sm-2 control-label">Hình ảnh phụ 3 (*)</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                        <input name="photo3" value="${product.image3}" type="file" class="form-control"/>
+                                    </div>
+                                    <div class="message" id="message_name">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                 <label for="name" class="cols-sm-2 control-label">Ảnh bìa (*)</label>
+                                 <div class="cols-sm-10">
+                                     <div class="input-group">
+                                         <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                         <input name="photo4" value="${product.banner}" type="file" class="form-control"/>
+                                     </div>
+                                     <div class="message" id="message_name">
+                                     </div>
+                                 </div>
+                            </div>
+
+
+                           <div class="form-group">
                                <label for="name" class="cols-sm-2 control-label">Mô Tả (*)</label>
                                <div class="cols-sm-10">
                                    <div class="input-group">
                                        <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                                       <input name="description" type="text" class="form-control" placeholder="mô tả sản phẩm"/>
+                                       <input name="description" value="${product.description}" type="text" class="form-control" placeholder="mô tả sản phẩm"/>
                                    </div>
                                    <div class="message" id="message_name">
                                    </div>
@@ -144,7 +193,7 @@
                                  <div class="cols-sm-10">
                                      <div class="input-group">
                                          <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                                         <input name="price" type="number" class="form-control" placeholder="nhập giá"/>
+                                         <input name="price" value="${product.price}" type="number" min="0" class="form-control" placeholder="nhập giá"/>
                                      </div>
                                      <div class="message" id="message_name">
                                      </div>
@@ -156,7 +205,7 @@
                                 <div class="cols-sm-10">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                                        <input name="quantity" type="number" class="form-control" placeholder="nhập số lượng"/>
+                                        <input name="quantity" value="${product.quantity}" type="number" min="0" class="form-control" placeholder="nhập số lượng"/>
                                     </div>
                                     <div class="message" id="message_name">
                                     </div>
@@ -164,18 +213,100 @@
                            </div>
 
                            <div class="form-group">
+                              <label for="name" class="cols-sm-2 control-label">Thông tin sản phẩm (*)</label>
+                              <div class="cols-sm-10">
+                                  <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                      <input name="information" value="${product.productDetails.information}" type="text" class="form-control"/>
+                                  </div>
+                                  <div class="message" id="message_name">
+                                  </div>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
                                <label for="name" class="cols-sm-2 control-label">Dung lượng pin (*)</label>
                                <div class="cols-sm-10">
                                    <div class="input-group">
                                        <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                                       <input name="product_batteries" type="text" class="form-control"/>
+                                       <input name="product_batteries" value="${product.productDetails.product_batteries}" type="text" class="form-control"/>
                                    </div>
                                    <div class="message" id="message_name">
                                    </div>
                                </div>
                            </div>
 
+                           <div class="form-group">
+                               <label for="name" class="cols-sm-2 control-label">Chip set (*)</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                       <input name="product_chip" value="${product.productDetails.product_chip}" type="text" class="form-control"/>
+                                   </div>
+                                   <div class="message" id="message_name">
+                                   </div>
+                               </div>
+                           </div>
 
+                           <div class="form-group">
+                               <label for="name" class="cols-sm-2 control-label">Camera Trước (*)</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                       <input name="product_frontCamera" value="${product.productDetails.product_frontCamera}" type="text" class="form-control"/>
+                                   </div>
+                                   <div class="message" id="message_name">
+                                   </div>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label for="name" class="cols-sm-2 control-label">Camera Sau (*)</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                       <input name="product_rearCamera" value="${product.productDetails.product_rearCamera}" type="text" class="form-control"/>
+                                   </div>
+                                   <div class="message" id="message_name">
+                                   </div>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="name" class="cols-sm-2 control-label">Ram (*)</label>
+                              <div class="cols-sm-10">
+                                  <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                      <input name="product_ram" value="${product.productDetails.product_ram}" type="text" class="form-control"/>
+                                  </div>
+                                  <div class="message" id="message_name">
+                                  </div>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label for="name" class="cols-sm-2 control-label">Kích thước Màn hình (*)</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                       <input name="product_screen" value="${product.productDetails.product_screen}" type="text" class="form-control"/>
+                                   </div>
+                                   <div class="message" id="message_name">
+                                   </div>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label for="name" class="cols-sm-2 control-label">Hệ điều hành (*)</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                       <input name="product_system" value="${product.productDetails.product_system}" type="text" class="form-control"/>
+                                   </div>
+                                   <div class="message" id="message_name">
+                                   </div>
+                               </div>
+                           </div>
 
                            <div class="form-group">
                                <label for="confirm" class="cols-sm-2 control-label">Danh Mục (*)</label>
@@ -189,10 +320,9 @@
                                    </div>
                                </div>
                            </div>
-
                            <div class="form-group ">
                                <div class="add">
-                                   <input type="submit" value="Đồng ý thêm"/>
+                                   <input type="submit" value="${change}"/>
                                </div>
                            </div>
                     </form>

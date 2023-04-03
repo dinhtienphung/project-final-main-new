@@ -49,7 +49,7 @@
               <div class="col-lg-7 pr-0">
                 <ul  class="nav navbar-nav center_nav pull-right">
                   <li class="nav-item active">
-                    <a class="nav-link" href="/productphone">Trang Chủ</a>
+                    <a class="nav-link" href="/project-final-main">Trang Chủ</a>
                   </li>
 
                   <li class="nav-item submenu dropdown">
@@ -63,27 +63,21 @@
                         </c:forEach>
                     </ul>
                   </li>
-                   <li class="nav-item submenu dropdown">
-                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                         aria-expanded="false">Lịch sử đơn hàng</a>
-                       <ul class="dropdown-menu">
-                       </ul>
+                   <li class="nav-item actives">
+                           <a class="nav-link" href="#">Lịch sử đơn hàng</a>
                    </li>
-                   <li class="nav-item submenu dropdown">
-                     <a href="manager" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                          aria-expanded="false">Trang Quản Lý</a>
-                        <ul class="dropdown-menu">
-                        </ul>
+                   <li class="nav-item actives">
+                          <a class="nav-link" href="manager">Trang quản lý</a>
                    </li>
                 </ul>
                   <div class="search">
-                    <form:form action="search" method="get">
+                    <form action="search" method="get">
                       <div class="input-group">
                           <input name="searchInput" type="text" class="form-control rounded" placeholder="Sản Phẩm Cần Tìm?" aria-label="Search"
                               aria-describedby="search-addon" />
                           <button type="submit" class="btn btn-outline-primary">Tìm Kiếm</button>
                       </div>
-                    </form:form>
+                    </form>
                   </div>
               </div>
 
